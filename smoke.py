@@ -6,7 +6,7 @@ class Smoke:
         self.width = 30
         self.height = 30
 
-        self.opacity = 200
+        self.opacity = 100
 
         self.vel = [0, 0]
 
@@ -14,4 +14,4 @@ class Smoke:
         self.x += self.vel[0]
         self.y += self.vel[1]
 
-        self.opacity -= 0.1
+        self.opacity -= 0.4
