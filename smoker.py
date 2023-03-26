@@ -8,8 +8,11 @@ class Smoker:
         self.smoking = True
         self.smokes = []
 
-    def create_smoke(self):
-        self.smokes.append(Smoke(self.x, self.y))
+    def create_smoke(self, direction: list):
+        smk = Smoke(self.x, self.y)
+        smk.vel = direction
+
+        self.smokes.append(smk)
 
     def update(self):
         if self.smoking:
