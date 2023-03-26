@@ -1,14 +1,15 @@
 class Smoke:
-    def __init__(self, x, y):
+    def __init__(self, x, y, color):
         self.x = x
         self.y = y
 
-        self.width = 30
-        self.height = 30
-
-        self.opacity = 100
+        self.width = 50
+        self.height = 50
 
         self.vel = [0, 0]
+
+        self.color = color
+        self.opacity = 100
 
     def update(self):
         self.x += self.vel[0]
