@@ -6,7 +6,7 @@ from smoker import Smoker
 
 pr.init_window(1080, 720, "Smoker")
 
-smk = Smoker(1080 // 2, 720 // 2)
+smk = Smoker(1080 // 2 - 30, 720 // 2 - 30)
 
 smk_img = pr.load_image("assets/smoke.png")
 pr.image_resize(smk_img, smk.width, smk.height)
@@ -20,8 +20,6 @@ pr.set_target_fps(60)
 while not pr.window_should_close():
     pr.begin_drawing()
     pr.clear_background(pr.BLACK)
-
-    pr.draw_circle(smk.x + 15, smk.y + 15, 1, pr.RED)
 
     if pr.is_mouse_button_down(0):
         mouse_pos = [pr.get_mouse_x() + choice([5, -5, 10, -10, 25, -25, 15, -15, 20, -20, 30, -30, 35, -35]), pr.get_mouse_y() + choice([5, -5, 10, -10, 25, -25, 15, -15, 20, -20, 30, -30, 35, -35])]
@@ -39,5 +37,6 @@ while not pr.window_should_close():
     for particle in smk.smokes:
         pr.draw_texture(smk_tx, int(particle.x), int(particle.y), pr.Color(particle.color[0], particle.color[1], particle.color[2], int(particle.opacity)))
 
+    pr.draw_circle(smk.x + 30, smk.y + 30, 5, pr.RED)
 
     pr.end_drawing()
