@@ -8,9 +8,16 @@ class Smoker:
         self.smoking = True
         self.smokes = []
 
+        self.color = [255, 255, 255]
+        self.width = 60
+        self.height = 60
+
     def create_smoke(self, direction: list, change = [0, 0]):
-        smk = Smoke(self.x + change[0], self.y + change[1])
+        smk = Smoke(self.x + change[0], self.y + change[1], self.color)
         smk.vel = direction
+
+        smk.width = self.width
+        smk.height = self.height
 
         self.smokes.append(smk)
 
