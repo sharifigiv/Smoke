@@ -8,6 +8,13 @@ pr.init_window(1080, 720, "Smoker")
 
 smk = Smoker(1080 // 2, 720 // 2)
 
+smk_img = pr.load_image("assets/smoke.png")
+pr.image_resize(smk_img, smk.width, smk.height)
+
+smk_tx = pr.load_texture_from_image(smk_img)
+
+pr.unload_image(smk_img)
+
 pr.set_target_fps(60)
 
 while not pr.window_should_close():
@@ -30,7 +37,7 @@ while not pr.window_should_close():
     smk.update()
 
     for particle in smk.smokes:
-        pr.draw_rectangle(int(particle.x), int(particle.y), particle.width, particle.height, pr.Color(255, 255, 255, int(particle.opacity)))
+        pr.draw_texture(smk_tx, int(particle.x), int(particle.y), pr.Color(particle.color[0], particle.color[1], particle.color[2], int(particle.opacity)))
 
 
     pr.end_drawing()
