@@ -6,7 +6,7 @@ from smoker import Smoker
 
 pr.init_window(1080, 720, "Smoker")
 
-smk = Smoker(1080 // 2 - 30, 720 // 2 - 30)
+smk = Smoker(1080 // 2 - 30, 720 - 30)
 
 smk_img = pr.load_image("assets/smoke.png")
 pr.image_resize(smk_img, smk.width, smk.height)
@@ -37,6 +37,6 @@ while not pr.window_should_close():
     for particle in smk.smokes:
         pr.draw_texture(smk_tx, int(particle.x), int(particle.y), pr.Color(particle.color[0], particle.color[1], particle.color[2], int(particle.opacity)))
 
-    pr.draw_circle(smk.x + 30, smk.y + 30, 5, pr.RED)
+    # pr.draw_circle(smk.x + 30, smk.y + 30, 5, pr.RED)
 
     pr.end_drawing()
