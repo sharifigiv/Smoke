@@ -28,4 +28,3 @@ class Smoker:
 
                 if s.opacity <= 0:
                     self.smokes.remove(s)
-                    
